@@ -63,7 +63,7 @@ def run(args):
         with open(args.gene_file, 'r') as IN:
             gene_list = [l.rstrip().split()[0] for l in IN if not l.startswith("#")]
         print("Original number of genes: {}".format(len(MAF_df[args.GENE].unique())))
-        MAF_df = MAF_df[MAF_df[args.GENE].isin(sample_list)]
+        MAF_df = MAF_df[MAF_df[args.GENE].isin(gene_list)]
         print("New number of genes: {}".format(len(MAF_df[args.GENE].unique())))
 
     # Check what variant classes are in the data
