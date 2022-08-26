@@ -3,25 +3,7 @@ import csv, sys, os
 import pandas as pd
 import argparse
 #from constants import *
-# 
-def get_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-m', '--mutation_file_groups', type=str, required=True,
-                        action='append', nargs='*')
-    parser.add_argument('-ct', '--cancer_types', type=str, required=True, nargs='*')
-    parser.add_argument('-pw', '--patient_whitelist', type=str, required=False)
-    parser.add_argument('-hf', '--hypermutators_file', type=str, required=False, default=None)
-    parser.add_argument('-ivc', '--ignored_variant_classes', type=str, required=False, nargs='*',
-                        default=["Silent", "Intron", "3'UTR", "5'UTR", "IGR", "lincRNA", "RNA"])
-    parser.add_argument('-ivt', '--ignored_variant_types', type=str, required=False, nargs='*',
-                        default=['Germline'])
-    parser.add_argument('-ivs', '--ignored_validation_statuses', type=str, required=False, nargs='*',
-                        default=['Wildtype', 'Invalid'])
-    parser.add_argument('-o', '--output_file', type=str, required=True)
-    parser.add_argument('-v', '--verbose', type=int, default=1, required=False, choices=range(5))
-    return parser
-
-# Parse arguments
+## Parse arguments
 def get_parser():
     description = 'Script for processing a list of mutations across tumor samples in MAF format to a mutation matrix and to a format for '
     parser = argparse.ArgumentParser(description=description)
